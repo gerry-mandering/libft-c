@@ -6,7 +6,7 @@
 #    By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/10 11:00:34 by minseok2          #+#    #+#              #
-#    Updated: 2022/11/10 12:27:54 by minseok2         ###   ########.fr        #
+#    Updated: 2022/11/10 19:48:22 by minseok2         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS_DIR = src
 SRCS = ft_isalpha \
 		ft_isdigit \
 		ft_isalnum \
+		ft_isspace \
 		ft_isascii \
 		ft_isprint \
 		ft_toupper \
