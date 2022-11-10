@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:40:48 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/15 11:05:38 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:18:46 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(const char *s1)
 {
@@ -20,9 +20,7 @@ char	*ft_strdup(const char *s1)
 
 	length = ft_strlen(s1);
 	i = 0;
-	str = (char *)malloc(sizeof(char) * (length + 1));
-	if (str == NULL)
-		return (NULL);
+	str = (char *)ft_calloc((length + 1), sizeof(char));
 	while (s1[i])
 	{
 		str[i] = s1[i];

@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:00:43 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/07 15:13:29 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:09:36 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../includes/libft.h"
 
 size_t	ft_strlen(const char *s)
 {

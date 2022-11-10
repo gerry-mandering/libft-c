@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 14:33:59 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/15 12:33:13 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:15:41 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../includes/libft.h"
 
 static char	**allocate_splited_str(char const *s, char c)
 {
@@ -19,7 +19,7 @@ static char	**allocate_splited_str(char const *s, char c)
 
 	word_count = 0;
 	if (s == NULL)
-		return (NULL);
+		ft_exit("Error", STDERR_FILENO, EXIT_FAILURE);
 	while (*s && *s == c)
 		s++;
 	while (*s)
@@ -33,9 +33,7 @@ static char	**allocate_splited_str(char const *s, char c)
 		while (*s && *s == c)
 			s++;
 	}
-	splited_str = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (splited_str == NULL)
-		return (NULL);
+	splited_str = (char **)ft_calloc((word_count + 1), sizeof(char *));
 	return (splited_str);
 }
 
@@ -47,9 +45,7 @@ static char	*cut_each_str(char const *s, char c)
 	i = 0;
 	while (s[i] != c && s[i])
 		i++;
-	str = (char *)malloc(sizeof(char) * (i + 1));
-	if (str == NULL)
-		return (NULL);
+	str = (char *)ft_calloc((i + 1), sizeof(char));
 	i = 0;
 	while (s[i] != c && s[i])
 	{
@@ -60,14 +56,6 @@ static char	*cut_each_str(char const *s, char c)
 	return (str);
 }
 
-static char	**free_all(char **splited_str, int i)
-{
-	while (--i > 0)
-		free(splited_str[i]);
-	free(splited_str);
-	return (NULL);
-}
-
 char	**ft_split(char const *s, char c)
 {
 	char	**splited_str;
@@ -75,15 +63,11 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	splited_str = allocate_splited_str(s, c);
-	if (splited_str == NULL)
-		return (NULL);
 	while (*s && *s == c)
 		s++;
 	while (*s)
 	{
 		splited_str[i] = cut_each_str(s, c);
-		if (splited_str == NULL)
-			return (free_all(splited_str, i));
 		while (*s != c && *s)
 			s++;
 		while (*s && *s == c)

@@ -6,9 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 17:14:15 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/05 17:53:15 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:06:43 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/libft.h"
 
 int	ft_isalpha(int c)
 {

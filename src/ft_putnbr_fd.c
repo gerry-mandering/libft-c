@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 20:53:36 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/15 11:47:15 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:08:10 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "../includes/libft.h"
 
 static int	get_digits(int n)
 {

@@ -1,66 +1,72 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/11/10 11:00:34 by minseok2          #+#    #+#              #
+#    Updated: 2022/11/10 12:27:54 by minseok2         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = libft.a
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -rcs
 RM = rm
-RMFLAGS = -f
-SRCS = ft_isalpha.c \
-		ft_isdigit.c \
-		ft_isalnum.c \
-		ft_isascii.c \
-		ft_isprint.c \
-		ft_strlen.c \
-		ft_memset.c \
-		ft_bzero.c \
-		ft_memcpy.c \
-		ft_memmove.c \
-		ft_strlcpy.c \
-		ft_strlcat.c \
-		ft_toupper.c \
-		ft_tolower.c \
-		ft_strchr.c \
-		ft_strrchr.c \
-		ft_strncmp.c \
-		ft_memchr.c \
-		ft_memcmp.c \
-		ft_strnstr.c \
-		ft_atoi.c \
-		ft_calloc.c \
-		ft_strdup.c \
-		ft_substr.c \
-		ft_strjoin.c \
-		ft_strtrim.c \
-		ft_split.c \
-		ft_itoa.c \
-		ft_strmapi.c \
-		ft_striteri.c \
-		ft_putchar_fd.c \
-		ft_putstr_fd.c \
-		ft_putendl_fd.c \
-		ft_putnbr_fd.c
-SRCS_B = ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
-OBJS = $(SRCS:c=o)
-OBJS_B = $(SRCS_B:c=o)
+RMFLAGS = -rf
 
-ifdef WITH_BONUS
-	TOTAL_OBJS = $(OBJS) $(OBJS_B)
-else
-	TOTAL_OBJS = $(OBJS)
-endif
+HEADER_DIR = includes
+
+SRCS_DIR = src
+SRCS = ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_bzero \
+		ft_memset \
+		ft_memcpy \
+		ft_memmove \
+		ft_memcmp \
+		ft_memchr \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strncmp \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strdup \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_strmapi \
+		ft_striteri \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
+		ft_atoi \
+		ft_itoa \
+		ft_malloc \
+		ft_calloc \
+		ft_exit \
+		ft_free
+
+OBJS_DIR = objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(addsuffix .o, $(SRCS)))
 
 all: $(NAME)
 
 clean:
-	$(RM) $(RMFLAGS) $(OBJS) $(OBJS_B)
+	$(RM) $(RMFLAGS) $(OBJS_DIR)
 
 fclean: clean
 	$(RM) $(RMFLAGS) $(NAME)
@@ -69,13 +75,11 @@ re:
 	make fclean
 	make all
 
-bonus :
-	make WITH_BONUS=1 all
-
-$(NAME): $(TOTAL_OBJS)
+$(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-%.o : %.c
-	$(CC) $(CFLAGS) $< -c
+$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
+	mkdir -p $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@ -I$(HEADER_DIR)
 
 .PHONY: all clean fclean re bonus

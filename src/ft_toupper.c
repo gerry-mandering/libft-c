@@ -6,9 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:30:31 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/05 18:32:47 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:10:34 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/libft.h"
 
 int	ft_toupper(int c)
 {

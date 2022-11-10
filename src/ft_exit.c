@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 21:53:05 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/16 13:32:54 by minseok2         ###   ########.fr       */
+/*   Created: 2022/11/10 11:50:51 by minseok2          #+#    #+#             */
+/*   Updated: 2022/11/10 11:52:07 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_exit(const char *signal, int fd, int status)
 {
-	if (lst == NULL || f == NULL)
-		return ;
-	while (lst)
-	{
-		f(lst -> content);
-		lst = lst -> next;
-	}
+	if (signal != NULL)
+		ft_putendl_fd((char *)signal, fd);
+	exit (status);
 }

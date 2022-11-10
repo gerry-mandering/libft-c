@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 18:13:36 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/07 13:59:37 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:07:52 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../includes/libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

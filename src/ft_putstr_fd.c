@@ -6,12 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 20:30:09 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/08 16:44:19 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:08:30 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <unistd.h>
+#include "../includes/libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {

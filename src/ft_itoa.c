@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:42:09 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/16 14:35:48 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:12:57 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	get_digits(int n)
 {
@@ -34,11 +34,9 @@ static char	*memory_allocate_num_str(int n)
 
 	digits = get_digits(n);
 	if (n < 0)
-		num_str = (char *)malloc(sizeof(char) * (digits + 2));
+		num_str = (char *)ft_calloc((digits + 2), sizeof(char));
 	else
-		num_str = (char *)malloc(sizeof(char) * (digits + 1));
-	if (num_str == NULL)
-		return (NULL);
+		num_str = (char *)ft_calloc((digits + 1), sizeof(char));
 	return (num_str);
 }
 

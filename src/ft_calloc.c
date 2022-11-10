@@ -6,27 +6,19 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:34:32 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/12 19:12:53 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:01:57 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "../includes/libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_calloc(size_t count, size_t data_type_size)
 {
-	unsigned char	*ptr;
-	size_t			i;
+	void	*ptr;
 
-	if (size != 0 && count > (SIZE_MAX - 8192) / size)
-		return (NULL);
-	ptr = (unsigned char *)malloc(count * size);
+	ptr = malloc(count * data_type_size);
 	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < count * size)
-	{
-		*(ptr + i) = 0;
-		i++;
-	}
+		ft_exit("malloc assertion failure", STDERR_FILENO, EXIT_FAILURE);
+	ft_bzero(ptr, (count * data_type_size));
 	return (ptr);
 }

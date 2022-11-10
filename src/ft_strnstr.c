@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:29:17 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/13 13:39:04 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:09:57 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static char	*check_needle(const char *hay, const char *ned, size_t len)
 {

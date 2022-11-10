@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_malloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 17:23:22 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/15 12:30:38 by minseok2         ###   ########.fr       */
+/*   Created: 2022/11/10 12:03:11 by minseok2          #+#    #+#             */
+/*   Updated: 2022/11/10 12:05:51 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	*ft_malloc(size_t size)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst -> next)
-		lst = lst -> next;
-	return (lst);
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (ptr == NULL)
+		ft_exit("malloc assertion failure", STDERR_FILENO, EXIT_FAILURE);
+	return (ptr);
 }

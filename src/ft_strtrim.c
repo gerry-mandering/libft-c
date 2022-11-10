@@ -6,11 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 13:59:43 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/15 11:29:41 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:10:11 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static int	is_in_set(char input, const char *set)
 {

@@ -6,84 +6,53 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 10:30:23 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/16 13:21:37 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 11:54:08 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <limits.h>
+#include "../includes/libft.h"
+#define POS	1
+#define NEG	-1
 
-static int	check_space(const char *input)
+static int	get_sign(char **string)
 {
-	if ((*input >= 9 && 13 >= *input) || *input == ' ')
-		return (1);
-	else
-		return (0);
-}
-
-static int	check_numeric(const char *input)
-{
-	if (*input >= '0' && '9' >= *input)
-		return (1);
-	else
-		return (0);
-}
-
-static int	check_numeric_len(const char *str)
-{
-	size_t	length;
-
-	length = 0;
-	while (check_numeric(str))
+	if (**string == '-')
 	{
-		length++;
-		str++;
+		(*string)++;
+		return (-1);
 	}
-	return (length);
-}
-
-static int	convert_to_integer(const char *str, unsigned long *number, int sign)
-{
-	while (check_numeric(str))
+	else if (**string == '+')
 	{
-		*number *= 10;
-		if (sign == 1 && *number > LONG_MAX)
-			return (-1);
-		else if (sign == -1 && *number != 0 && *number - 1 > LONG_MAX)
-			return (0);
-		*number += (*str - '0');
-		if (sign == 1 && *number > LONG_MAX)
-			return (-1);
-		else if (sign == -1 && *number != 0 && *number - 1 > LONG_MAX)
-			return (0);
-		str++;
+		(*string)++;
+		return (1);
 	}
-	return (*number * sign);
+	else
+		return (1);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *string)
 {
+	int				i;
 	int				sign;
 	unsigned long	number;
 
-	sign = 1;
+	i = 0;
+	sign = get_sign(&string);
+	if ((*string) == '\0')
+		ft_exit("Error", STDERR_FILENO, EXIT_FAILURE);
 	number = 0;
-	while (check_space(str))
-		str++;
-	if (*str == '-')
+	while (ft_isspace(*string))
+		string++;
+	while (string[i])
 	{
-		sign *= -1;
-		str++;
+		if (!(ft_isdigit(string[i])))
+			ft_exit("Error", STDERR_FILENO, EXIT_FAILURE);
+		number *= 10;
+		number += (string[i] - '0');
+		if ((sign == POS && number > 2147483647) || \
+				(sign == NEG && number > 2147483648))
+			ft_exit("Error", STDERR_FILENO, EXIT_FAILURE);
+		i++;
 	}
-	else if (*str == '+')
-		str++;
-	while (*str == '0')
-		str++;
-	if (check_numeric_len(str) > 19)
-	{
-		if (sign == 1)
-			return (-1);
-		return (0);
-	}
-	return (convert_to_integer(str, &number, sign));
+	return ((int)(sign * number));
 }

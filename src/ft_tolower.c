@@ -6,9 +6,11 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/05 18:33:34 by minseok2          #+#    #+#             */
-/*   Updated: 2022/07/05 18:34:05 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:10:27 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../includes/libft.h"
 
 int	ft_tolower(int c)
 {
