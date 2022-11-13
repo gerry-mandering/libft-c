@@ -6,7 +6,7 @@
 /*   By: minseok2 <minseok2@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 11:31:44 by minseok2          #+#    #+#             */
-/*   Updated: 2022/11/10 12:28:38 by minseok2         ###   ########.fr       */
+/*   Updated: 2022/11/13 21:15:47 by minseok2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <fcntl.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -60,5 +61,8 @@ void	*ft_malloc(size_t size);
 void	*ft_calloc(size_t count, size_t data_type_size);
 void	ft_exit(const char *signal, int fd, int status);
 void	ft_free(void *ptr);
+
+int		ft_open(const char *path, int oflag);
+int		ft_close(int fildes);
 
 #endif
